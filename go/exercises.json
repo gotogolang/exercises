@@ -1,0 +1,31 @@
+{
+  "language": "go",
+  "display_name": "Go",
+  "description": "Практика на Go",
+  "courses": [
+    { "id": "go-basics", "label": "Go: основы" }
+  ],
+  "exercises": [
+    {
+      "id": "go-expr-01",
+      "title": "Таблица умножения",
+      "course": "go-basics",
+      "type": "single-file",
+      "difficulty": "easy"
+    },
+    {
+      "id": "go-func-01",
+      "title": "Реверс строки",
+      "course": "go-basics",
+      "type": "function",
+      "difficulty": "easy"
+    },
+    {
+      "id": "go-multi-01",
+      "title": "Пакет mathutils",
+      "course": "go-basics",
+      "type": "multi-file",
+      "difficulty": "medium"
+    }
+  ]
+}

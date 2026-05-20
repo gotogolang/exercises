@@ -1,0 +1,13 @@
+[component]
+name    = "exercises/go"
+version = "v0.1.0"
+
+[dependencies]
+# No external repo dependencies.
+# Requires docker-images/go to be mounted at /exercises during container runtime.
+
+[catalog]
+file = "exercises.json"
+
+[courses]
+go-basics = "Go: основы"
