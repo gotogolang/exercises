@@ -12,15 +12,20 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - name: Set up SSH key
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_deploy
           echo "${{ secrets.DEPLOY_KEY }}" > ~/.ssh/id_deploy
           ssh-keyscan -H ${{ secrets.DEPLOY_HOST }} >> ~/.ssh/known_hosts
 
-      - name: Pull exercises and restart gateway
+      - name: Sync exercises and restart gateway
         run: |
+          rsync -az --delete \
+            -e "ssh -i ~/.ssh/id_deploy" \
+            ./ \
+            ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }}:/opt/gotogolang/exercises/
           ssh -i ~/.ssh/id_deploy \
             ${{ secrets.DEPLOY_USER }}@${{ secrets.DEPLOY_HOST }} \
-            "cd /opt/gotogolang/exercises && git pull && \
-             cd /opt/gotogolang && docker compose restart gateway"
+            "cd /opt/gotogolang && docker compose restart gateway"
