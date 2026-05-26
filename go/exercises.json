@@ -7,6 +7,13 @@
   ],
   "exercises": [
     {
+      "id": "go-intro-01",
+      "title": "Hello, Go!",
+      "course": "go-basics",
+      "type": "single-file",
+      "difficulty": "easy"
+    },
+    {
       "id": "go-expr-01",
       "title": "Таблица умножения",
       "course": "go-basics",
